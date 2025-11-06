@@ -3,9 +3,37 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { services, benefits, faqs, contactInfo, eventTypes } from "@/constants/index";
-import { CheckIcon, PhoneIcon, Music, Trophy, Users, MapPin, Clock, Star, Heart, Church, Cake, FlowerIcon, PartyPopper, GraduationCap, Award } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  services,
+  benefits,
+  faqs,
+  contactInfo,
+  eventTypes,
+} from "@/constants/index";
+import {
+  CheckIcon,
+  PhoneIcon,
+  Music,
+  Trophy,
+  Users,
+  MapPin,
+  Clock,
+  Star,
+  Heart,
+  Church,
+  Cake,
+  FlowerIcon,
+  PartyPopper,
+  GraduationCap,
+  Award,
+} from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
@@ -30,24 +58,26 @@ function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-white">
+      <div className="relative container mx-auto px-4 text-center text-white">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-6">
             Menadžer za Profesionalne Trubače
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Vaša agencija za najbolje trubače u Beogradu, celoj Srbiji i inostranstvu. Organizujemo nastupe za svadbe, slave i sve vrste proslava sa vrhunskim muzičarima
+          <p className="text-xl md:text-2xl mb-4 md:mb-8 max-w-3xl mx-auto">
+            Vaša agencija za najbolje trubače u Beogradu, celoj Srbiji i
+            inostranstvu. Organizujemo nastupe za svadbe, slave i sve vrste
+            proslava sa vrhunskim muzičarima
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="#usluge">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-bold shadow-lg hover:shadow-2xl transition-all"
+                className="bg-gradient-primary text-primary-foreground px-4 md:px-8 py-2 md:py-4 rounded-full text-lg font-bold shadow-lg hover:shadow-2xl transition-all"
               >
                 Pogledajte naše usluge
               </motion.button>
@@ -56,7 +86,7 @@ function HeroSection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white/5 backdrop-blur-sm text-white border-2 border-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gradient-primary hover:text-primary-foreground transition-all flex items-center gap-2"
+                className="bg-white/5 backdrop-blur-sm text-white border-2 border-primary px-4 md:px-8 py-2 md:py-4 rounded-full text-lg font-semibold hover:bg-gradient-primary hover:text-primary-foreground transition-all flex items-center gap-2"
               >
                 <PhoneIcon className="w-5 h-5" />
                 Pozovite nas
@@ -70,7 +100,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="mt-4 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-8"
         >
           {[
             { number: "15+", label: "Godina iskustva" },
@@ -79,8 +109,10 @@ function HeroSection() {
             { number: "100%", label: "Posvećenost kvalitetu" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-3xl md:text-5xl font-bold text-primary">{stat.number}</div>
-              <div className="text-sm md:text-base mt-2">{stat.label}</div>
+              <div className="text-2xl md:text-5xl font-bold text-primary">
+                {stat.number}
+              </div>
+              <div className="text-sm md:text-base md:mt-2">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -101,9 +133,12 @@ function ServicesSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Naše usluge</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Naše usluge
+          </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Odaberite kategoriju koja najbolje odgovara vašim potrebama i budžetu
+            Odaberite kategoriju koja najbolje odgovara vašim potrebama i
+            budžetu
           </p>
         </motion.div>
 
@@ -129,19 +164,23 @@ function ServicesSection() {
                     className="object-cover rounded-t-lg"
                   />
                   {service.featured && (
-                    <div className="absolute top-0 right-0 bg-gradient-primary text-primary-foreground px-4 py-2 rounded-bl-lg font-bold shadow-lg z-10">
+                    <div className="absolute top-0 right-0 bg-gradient-primary text-primary-foreground px-4 py-2 rounded-bl-lg rounded-tr-lg font-bold shadow-lg ">
                       ⭐ Najpopularnije
                     </div>
                   )}
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-2xl text-left">{service.title}</CardTitle>
+                  <CardTitle className="text-2xl text-left">
+                    {service.title}
+                  </CardTitle>
                   <CardDescription className="text-3xl font-bold text-primary text-left">
                     {service.price}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">{service.description}</p>
+                  <p className="text-muted-foreground mb-4">
+                    {service.description}
+                  </p>
                   <ul className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2">
@@ -187,7 +226,8 @@ function EventTypesSection() {
             Za koja slavlja sviramo?
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Naši profesionalni trubači su tu za svaku priliku - od najradosnijih do najsvečanijih trenutaka u vašem životu
+            Naši profesionalni trubači su tu za svaku priliku - od najradosnijih
+            do najsvečanijih trenutaka u vašem životu
           </p>
         </motion.div>
 
@@ -207,10 +247,14 @@ function EventTypesSection() {
                     <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 mx-auto">
                       <Icon className="w-8 h-8 text-primary-foreground" />
                     </div>
-                    <CardTitle className="text-lg text-center text-primary">{event.title}</CardTitle>
+                    <CardTitle className="text-lg text-center text-primary">
+                      {event.title}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground text-sm text-center">{event.description}</p>
+                    <p className="text-muted-foreground text-sm text-center">
+                      {event.description}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -226,8 +270,9 @@ function EventTypesSection() {
           className="mt-12 text-center"
         >
           <p className="text-lg text-muted-foreground mb-6">
-            Bilo da tražite trubače za svadbu, trubače za slavu, trubače za rođendan ili bilo koju drugu priliku -
-            tu smo da vaš događaj učinimo nezaboravnim!
+            Bilo da tražite trubače za svadbu, trubače za slavu, trubače za
+            rođendan ili bilo koju drugu priliku - tu smo da vaš događaj učinimo
+            nezaboravnim!
           </p>
           <Link href={`tel:${contactInfo.phone}`}>
             <motion.button
@@ -261,38 +306,56 @@ function AboutSection() {
             </h2>
             <div className="space-y-4 text-lg">
               <p>
-                Dobrodošli u <strong>vodeću agenciju za angažovanje trubača u Beogradu, celoj Srbiji i inostranstvu</strong>!
-                Sa više od 15 godina iskustva u industriji, mi smo vaš <strong>pouzdani menadžer za trubače</strong>
-                koji povezuje klijente sa najboljim trubačkim orkestrima za sve vrste proslava - od intimnih porodičnih
-                okupljanja do velikih svadbi i korporativnih događaja.
+                Dobrodošli u{" "}
+                <strong>
+                  vodeću agenciju za angažovanje trubača u Beogradu, celoj
+                  Srbiji i inostranstvu
+                </strong>
+                ! Sa više od 15 godina iskustva u industriji, mi smo vaš{" "}
+                <strong>pouzdani menadžer za trubače</strong>
+                koji povezuje klijente sa najboljim trubačkim orkestrima za sve
+                vrste proslava - od intimnih porodičnih okupljanja do velikih
+                svadbi i korporativnih događaja.
               </p>
               <p>
-                Kao <strong>profesionalni menadžment za trubače u Srbiji</strong>, sarađujemo isključivo sa
-                proverenim muzičarima visokog kvaliteta, uključujući <strong>učesnike i pobednike
-                festivala u Guči</strong>. Naša baza obuhvata preko 50 trubača i 15 različitih orkestara
-                iz Beograda i cele Srbije, što nam omogućava da za svaku priliku pronađemo savršeno rešenje.
+                Kao{" "}
+                <strong>profesionalni menadžment za trubače u Srbiji</strong>,
+                sarađujemo isključivo sa proverenim muzičarima visokog
+                kvaliteta, uključujući{" "}
+                <strong>učesnike i pobednike festivala u Guči</strong>. Naša
+                baza obuhvata preko 50 trubača i 15 različitih orkestara iz
+                Beograda i cele Srbije, što nam omogućava da za svaku priliku
+                pronađemo savršeno rešenje.
               </p>
               <p>
-                Naša agencija funkcioniše kao <strong>vaš lični koncijerg za trubačku muziku</strong>.
-                Mi preuzimamo svu organizaciju - od prvog kontakta, preko selekcije odgovarajućeg orkestra,
-                dogovora repertoara, pa sve do finalizacije nastupa. Vi samo uživate u savršenoj muzici!
+                Naša agencija funkcioniše kao{" "}
+                <strong>vaš lični koncijerg za trubačku muziku</strong>. Mi
+                preuzimamo svu organizaciju - od prvog kontakta, preko selekcije
+                odgovarajućeg orkestra, dogovora repertoara, pa sve do
+                finalizacije nastupa. Vi samo uživate u savršenoj muzici!
               </p>
               <p>
-                Nudimo <strong>tri cenovne kategorije</strong> kako bismo zadovoljili različite budžete:
-                od pristupačnih opcija za manje proslave (50-100€), preko srednjeg ranga profesionalaca
-                (100-500€), do ekskluzivnih pobednika Guče (500-1000€). Garantujemo transparentnost cena
-                i profesionalnu uslugu bez skrivenih troškova.
+                Nudimo <strong>tri cenovne kategorije</strong> kako bismo
+                zadovoljili različite budžete: od pristupačnih opcija za manje
+                proslave (50-100€), preko srednjeg ranga profesionalaca
+                (100-500€), do ekskluzivnih pobednika Guče (500-1000€).
+                Garantujemo transparentnost cena i profesionalnu uslugu bez
+                skrivenih troškova.
               </p>
               <p>
-                Pokrivamo <strong>Beograd, celu Srbiju i inostranstvo</strong> uključujući Bosnu i Hercegovinu,
-                Hrvatsku, Crnu Goru, Sloveniju, Austriju, Nemačku i Švajcarsku. Bilo da tražite trubače u Beogradu
-                ili vam trebaju muzičari u inostranstvu - imamo trubače spremne da dođu i oduševе goste
-                autentičnom balkanskom muzikom gde god da se nalazite.
+                Pokrivamo <strong>Beograd, celu Srbiju i inostranstvo</strong>{" "}
+                uključujući Bosnu i Hercegovinu, Hrvatsku, Crnu Goru, Sloveniju,
+                Austriju, Nemačku i Švajcarsku. Bilo da tražite trubače u
+                Beogradu ili vam trebaju muzičari u inostranstvu - imamo trubače
+                spremne da dođu i oduševе goste autentičnom balkanskom muzikom
+                gde god da se nalazite.
               </p>
               <p>
-                Naša misija je jednostavna: <strong>spajamo ljude sa najboljim trubačima</strong> i
-                stvaramo nezaboravna iskustva. Verujte nam organizaciju muzike za vaš najvažniji dan -
-                mi se brinem о svim detaljima da bi vi mogli potpuno da uživate!
+                Naša misija je jednostavna:{" "}
+                <strong>spajamo ljude sa najboljim trubačima</strong> i stvaramo
+                nezaboravna iskustva. Verujte nam organizaciju muzike za vaš
+                najvažniji dan - mi se brinem о svim detaljima da bi vi mogli
+                potpuno da uživate!
               </p>
             </div>
           </motion.div>
@@ -380,10 +443,14 @@ function BenefitsSection() {
                     <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4">
                       <Icon className="w-8 h-8 text-primary-foreground" />
                     </div>
-                    <CardTitle className="text-xl text-left text-primary">{benefit.title}</CardTitle>
+                    <CardTitle className="text-xl text-left text-primary">
+                      {benefit.title}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">{benefit.description}</p>
+                    <p className="text-muted-foreground">
+                      {benefit.description}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -419,9 +486,12 @@ function GallerySection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Galerija</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Galerija
+          </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Pogledajte trenutke sa naših nastupa i uverite se u naš profesionalizam
+            Pogledajte trenutke sa naših nastupa i uverite se u naš
+            profesionalizam
           </p>
         </motion.div>
 
@@ -498,7 +568,7 @@ function CTASection() {
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
   // Parallax efekat - slika se pomera sporije nego sadržaj
@@ -507,10 +577,7 @@ function CTASection() {
   return (
     <section ref={sectionRef} className="relative py-32 overflow-hidden">
       {/* Parallax pozadinska slika */}
-      <motion.div
-        style={{ y }}
-        className="absolute inset-0 z-0"
-      >
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
         <Image
           src="/images/1762257288194.png"
           alt="Trubači pozadina"
@@ -523,7 +590,7 @@ function CTASection() {
       </motion.div>
 
       {/* CTA sadržaj preko slike */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
+      <div className="relative container mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -535,7 +602,8 @@ function CTASection() {
             Spremni da rezervišete naše trubače?
           </h2>
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-200">
-            Kontaktirajte nas danas i osigurajte nezaboravnu atmosferu za vašu proslavu
+            Kontaktirajte nas danas i osigurajte nezaboravnu atmosferu za vašu
+            proslavu
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/kontakt">
@@ -572,10 +640,10 @@ export default function Home() {
       <ServicesSection />
       <EventTypesSection />
       <AboutSection />
+      <CTASection />
       <BenefitsSection />
       <GallerySection />
       <FAQSection />
-      <CTASection />
     </main>
   );
 }

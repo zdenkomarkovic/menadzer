@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { MenuIcon, PhoneIcon } from "lucide-react";
-import Logo from "./Logo";
 
 import {
   Sheet,
@@ -15,6 +14,7 @@ import {
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { navList, contactInfo } from "@/constants/index";
+import Image from "@/node_modules/next/image";
 
 const mobTitleStyles = "text-lg py-2";
 
@@ -86,10 +86,12 @@ export default function Header() {
     >
       <nav className="flex items-center justify-between px-8 py-4 max-w-[80rem] w-full text-primary font-bold">
         <Link href="/" className="flex items-center gap-3 group">
-          <Logo className="w-14 h-14 transition-transform group-hover:scale-110" />
+          <Image src={"/logo.png"} width={50} height={50} alt="trubaci" />
           <div className="hidden md:flex flex-col">
             <span className="text-sm font-bold leading-tight">Menadžer za</span>
-            <span className="text-lg font-bold leading-tight text-gradient">Trubače</span>
+            <span className="text-lg font-bold leading-tight text-gradient">
+              Trubače
+            </span>
           </div>
         </Link>
         <DesktopNav />
