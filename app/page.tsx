@@ -1,3 +1,469 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { services, benefits, faqs, contactInfo } from "@/constants/index";
+import { CheckIcon, PhoneIcon, Music, Trophy, Users, MapPin, Clock, Star } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+// Hero sekcija
+function HeroSection() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background image sa overlay */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/1762257288212.jpg"
+          alt="Trubači nastup"
+          fill
+          className="object-cover brightness-50"
+          priority
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 text-center text-white">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+            Profesionalni Trubači Ristić
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            Donosimo radost, tradiciju i nezaboravnu atmosferu na svadbe, slave i sve vrste proslava
+            širom Srbije i regiona
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link href="#usluge">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors"
+              >
+                Pogledajte naše usluge
+              </motion.button>
+            </Link>
+            <Link href={`tel:${contactInfo.phone}`}>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white/10 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/20 transition-colors flex items-center gap-2"
+              >
+                <PhoneIcon className="w-5 h-5" />
+                Pozovite nas
+              </motion.button>
+            </Link>
+          </div>
+        </motion.div>
+
+        {/* Statistika */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
+        >
+          {[
+            { number: "15+", label: "Godina iskustva" },
+            { number: "500+", label: "Zadovoljnih klijenata" },
+            { number: "3", label: "Kategorije usluga" },
+            { number: "100%", label: "Posvećenost kvalitetu" },
+          ].map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-3xl md:text-5xl font-bold text-primary">{stat.number}</div>
+              <div className="text-sm md:text-base mt-2">{stat.label}</div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// Sekcija sa uslugama
+function ServicesSection() {
+  return (
+    <section id="usluge" className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Naše usluge</h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Odaberite kategoriju koja najbolje odgovara vašim potrebama i budžetu
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card
+                className={`h-full hover:shadow-xl transition-shadow ${
+                  service.featured ? "border-primary border-2" : ""
+                }`}
+              >
+                {service.featured && (
+                  <div className="bg-primary text-primary-foreground text-center py-2 font-semibold">
+                    Najpopularnije
+                  </div>
+                )}
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover rounded-t-lg"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-2xl text-left">{service.title}</CardTitle>
+                  <CardDescription className="text-3xl font-bold text-primary text-left">
+                    {service.price}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">{service.description}</p>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <CheckIcon className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// O nama sekcija sa puno SEO teksta
+function AboutSection() {
+  return (
+    <section id="o-nama" className="py-20 bg-muted">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-left">
+              O nama - Tradicija i Kvalitet
+            </h2>
+            <div className="space-y-4 text-lg">
+              <p>
+                <strong>Trubači Ristić</strong> su sinonim za kvalitet, profesionalizam i
+                nezaboravnu atmosferu na proslavama širom Srbije i regiona. Sa više od 15 godina
+                iskustva, naši trubači su postali omiljeni izbor za svadbe, slave, rođendane i sve
+                vrste proslave gde je potrebna autentična trubačka muzika.
+              </p>
+              <p>
+                Naš tim čine <strong>profesionalni muzičari</strong> koji su učesnici i pobednici
+                najpoznatijeg trubačkog festivala u <strong>Guči</strong>. Ova prestižna titula
+                garantuje vrhunski kvalitet sviranja i bogat repertoar koji obuhvata kako
+                tradicionalnu narodnu muziku, tako i savremene hitove prilagođene trubu.
+              </p>
+              <p>
+                Prepoznatljivi smo po <strong>elegantnim uniformama</strong> i mogućnosti nastupa u
+                autentičnim <strong>narodnim nošnjama</strong>, što našim klijentima pruža dodatnu
+                vrednost i jedinstven vizuelni doživljaj. Svaki naš nastup je pažljivo pripremljen i
+                prilagođen specifičnim zahtevima klijenata.
+              </p>
+              <p>
+                Nuđimo <strong>tri kategorije usluga</strong> kako bismo zadovoljili različite
+                budžete i potrebe - od povoljnih trubača za intimnije proslave, preko
+                profesionalnih bendova za veće događaje, do ekskluzivnih nastupa pobednika Guče za
+                one koji žele samo najbolje.
+              </p>
+              <p>
+                Pokrivamo <strong>celu Srbiju i region</strong> uključujući Bosnu i Hercegovinu,
+                Hrvatsku, Crnu Goru i druge države bivše Jugoslavije. Bez obzira gde se vaša
+                proslava održava, tu smo da stvorimo nezaboravnu atmosferu.
+              </p>
+              <p>
+                Naša misija je da svaku proslavu učinimo posebnom, da sačuvamo tradiciju trubačke
+                muzike i da našim nastupima donesemo radost i zadovoljstvo svakom gostu. Verujte
+                nam vaš najvažniji dan - mi ćemo se pobrinuti da muzika bude savršena!
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 gap-4"
+          >
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/1762257288191.jpg"
+                alt="Trubači nastup 1"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative h-64 rounded-lg overflow-hidden">
+              <Image
+                src="/images/1762257288218.jpeg"
+                alt="Trubači nastup 2"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative h-64 rounded-lg overflow-hidden col-span-2">
+              <Image
+                src="/images/1762257288223.jpeg"
+                alt="Trubači nastup 3"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Benefiti sekcija
+function BenefitsSection() {
+  const iconMap: Record<string, React.ElementType> = {
+    experience: Clock,
+    trophy: Trophy,
+    music: Music,
+    professional: Star,
+    location: MapPin,
+    flexible: Users,
+  };
+
+  return (
+    <section className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Zašto odabrati nas?
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Razlozi zbog kojih nas klijenti biraju za svoje najvažnije događaje
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {benefits.map((benefit, index) => {
+            const Icon = iconMap[benefit.icon];
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                      <Icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl text-left">{benefit.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{benefit.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Galerija sekcija
+function GallerySection() {
+  const images = [
+    "/images/1762257288177.jpg",
+    "/images/1762257288182.jpg",
+    "/images/1762257288186.webp",
+    "/images/1762257288191.jpg",
+    "/images/1762257288194.png",
+    "/images/1762257288206.jpeg",
+    "/images/1762257288212.jpg",
+    "/images/1762257288218.jpeg",
+    "/images/1762257288223.jpeg",
+  ];
+
+  return (
+    <section id="galerija" className="py-20 bg-muted">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Galerija</h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Pogledajte trenutke sa naših nastupa i uverite se u naš profesionalizam
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {images.map((image, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="relative h-64 rounded-lg overflow-hidden group cursor-pointer"
+            >
+              <Image
+                src={image}
+                alt={`Galerija slika ${index + 1}`}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// FAQ sekcija
+function FAQSection() {
+  return (
+    <section className="py-20 bg-background">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Često postavljana pitanja
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground">
+            Odgovori na najčešća pitanja naših klijenata
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger className="text-left text-lg font-semibold">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-base text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// CTA sekcija
+function CTASection() {
+  return (
+    <section className="py-20 bg-primary text-primary-foreground">
+      <div className="container mx-auto px-4 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Spremni da rezervišete naše trubače?
+          </h2>
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+            Kontaktirajte nas danas i osigurajte nezaboravnu atmosferu za vašu proslavu
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link href="/kontakt">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/90 transition-colors"
+              >
+                Kontaktirajte nas
+              </motion.button>
+            </Link>
+            <Link href={`tel:${contactInfo.phone}`}>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-primary-foreground/10 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-foreground/20 transition-colors flex items-center gap-2"
+              >
+                <PhoneIcon className="w-5 h-5" />
+                {contactInfo.phoneDisplay}
+              </motion.button>
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// Glavna komponenta
 export default function Home() {
-  return <div className=""></div>;
+  return (
+    <main className="overflow-x-hidden">
+      <HeroSection />
+      <ServicesSection />
+      <AboutSection />
+      <BenefitsSection />
+      <GallerySection />
+      <FAQSection />
+      <CTASection />
+    </main>
+  );
 }
