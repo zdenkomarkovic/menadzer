@@ -53,7 +53,7 @@ export default function ContactForm() {
     <div className="">
       <Form {...form}>
         <form
-          className="grid grid-cols-3 items-center p-4 lg:p-10 shadow-xl shadow-primary rounded-xl"
+          className="grid grid-cols-3 items-center"
           onSubmit={form.handleSubmit(onSubmit)}
         >
           <div className="col-span-3 flex flex-col gap-4 lg:col-span-3 lg:gap-8">
@@ -119,9 +119,9 @@ export default function ContactForm() {
             />
             <Button
               disabled={isLoading}
-              className="bg-primary  hover:bg-gray-600 transition-colors ease-in-out duration-500"
+              className="bg-gradient-primary hover:shadow-2xl text-primary-foreground font-bold transition-all ease-in-out duration-500"
             >
-              {isLoading ? "Sending....." : "Send"}
+              {isLoading ? "Šaljem..." : "Pošalji poruku"}
             </Button>
           </div>
         </form>

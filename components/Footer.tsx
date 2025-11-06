@@ -15,10 +15,10 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-xl font-bold text-primary mb-4 text-left">Agencija za Trubače</h3>
+            <h3 className="text-xl font-bold text-primary mb-4 text-left">Menadžer za Trubače</h3>
             <p className="text-sm">
-              Vaša profesionalna agencija za angažovanje najboljih trubača. Povezujemo vas sa vrhunskim
-              muzičarima za sve vrste proslava širom Srbije i regiona.
+              Profesionalni menadžer za angažovanje najboljih trubača u Beogradu, celoj Srbiji i inostranstvu.
+              Povezujemo vas sa vrhunskim muzičarima za sve vrste proslava.
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-center text-center gap-2 md:gap-10 border-t pt-8 text-sm">
           <p>
-            &copy; {new Date().getFullYear()} Agencija za Trubače. Sva prava zadržana.
+            &copy; {new Date().getFullYear()} Menadžer za Trubače - Beograd, Srbija, Inostranstvo. Sva prava zadržana.
           </p>
           <a href="https://www.manikamwebsolutions.com/" target="_blank" rel="noopener noreferrer">
             Izrada sajta:{" "}

@@ -143,8 +143,8 @@ export const benefits = [
     icon: "professional",
   },
   {
-    title: "Pokrivamo region",
-    description: "Srbija, Bosna i Hercegovina, Hrvatska, Crna Gora, Slovenija, Austrija - dolazimo svuda.",
+    title: "Beograd, Srbija i inostranstvo",
+    description: "Pokrivamo Beograd, celu Srbiju i inostranstvo - Bosnu, Hrvatsku, Austriju, Nemačku, Švajcarsku. Dolazimo svuda!",
     icon: "location",
   },
   {

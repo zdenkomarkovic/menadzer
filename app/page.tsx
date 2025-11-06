@@ -36,10 +36,10 @@ function HeroSection() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-            Profesionalni Trubači
+            Menadžer za Profesionalne Trubače
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Vaša agencija za najbolje trubače u Srbiji i regionu. Organizujemo nastupe za svadbe, slave i sve vrste proslava sa vrhunskim muzičarima
+            Vaša agencija za najbolje trubače u Beogradu, celoj Srbiji i inostranstvu. Organizujemo nastupe za svadbe, slave i sve vrste proslava sa vrhunskim muzičarima
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="#usluge">
@@ -256,19 +256,20 @@ function AboutSection() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-left">
-              O nama - Vaša agencija za najbolje trubače
+              O nama - Menadžer za trubače u Beogradu i Srbiji
             </h2>
             <div className="space-y-4 text-lg">
               <p>
-                Dobrodošli u <strong>vodeću agenciju za angažovanje trubača</strong> u Srbiji i regionu!
-                Sa više od 15 godina iskustva u industriji, povezujemo klijente sa najboljim trubačkim
-                orkestrima za sve vrste proslava - od intimnih porodičnih okupljanja do velikih svadbi i korporativnih događaja.
+                Dobrodošli u <strong>vodeću agenciju za angažovanje trubača u Beogradu, celoj Srbiji i inostranstvu</strong>!
+                Sa više od 15 godina iskustva u industriji, mi smo vaš <strong>pouzdani menadžer za trubače</strong>
+                koji povezuje klijente sa najboljim trubačkim orkestrima za sve vrste proslava - od intimnih porodičnih
+                okupljanja do velikih svadbi i korporativnih događaja.
               </p>
               <p>
-                Kao <strong>profesionalni menadžment za trubače</strong>, sarađujemo isključivo sa
+                Kao <strong>profesionalni menadžment za trubače u Srbiji</strong>, sarađujemo isključivo sa
                 proverenim muzičarima visokog kvaliteta, uključujući <strong>učesnike i pobednike
-                festivala u Guči</strong>. Naša baza obuhvata preko 50 trubača i 15 različitih orkestara,
-                što nam omogućava da za svaku priliku pronađemo savršeno rešenje.
+                festivala u Guči</strong>. Naša baza obuhvata preko 50 trubača i 15 različitih orkestara
+                iz Beograda i cele Srbije, što nam omogućava da za svaku priliku pronađemo savršeno rešenje.
               </p>
               <p>
                 Naša agencija funkcioniše kao <strong>vaš lični koncijerg za trubačku muziku</strong>.
@@ -282,9 +283,10 @@ function AboutSection() {
                 i profesionalnu uslugu bez skrivenih troškova.
               </p>
               <p>
-                Pokrivamo <strong>celu Srbiju i region</strong> uključujući Bosnu i Hercegovinu,
-                Hrvatsku, Crnu Goru, Sloveniju i Austriju. Bez obzira gde se vaš događaj održava,
-                imamo trubače spremne da dođu i oduševе goste autentičnom balkanskom muzikom.
+                Pokrivamo <strong>Beograd, celu Srbiju i inostranstvo</strong> uključujući Bosnu i Hercegovinu,
+                Hrvatsku, Crnu Goru, Sloveniju, Austriju, Nemačku i Švajcarsku. Bilo da tražite trubače u Beogradu
+                ili vam trebaju muzičari u inostranstvu - imamo trubače spremne da dođu i oduševе goste
+                autentičnom balkanskom muzikom gde god da se nalazite.
               </p>
               <p>
                 Naša misija je jednostavna: <strong>spajamo ljude sa najboljim trubačima</strong> i
