@@ -9,6 +9,10 @@ export const navList = [
     link: "/#usluge",
   },
   {
+    title: "Slavlja",
+    link: "/#slavlja",
+  },
+  {
     title: "O nama",
     link: "/#o-nama",
   },
@@ -120,32 +124,84 @@ export const faqs = [
 export const benefits = [
   {
     title: "Dugogodišnje iskustvo",
-    description: "Naši muzičari imaju preko 15 godina iskustva u sviranju na proslavama širom regiona.",
+    description: "15+ godina u organizaciji nastupa najboljih trubača za sve vrste proslava širom regiona.",
     icon: "experience",
   },
   {
-    title: "Učesnici i pobednici Guče",
-    description: "Ponosno predstavljamo muzičare koji su učestvovali i osvajali nagrade na najpoznatijem trubačkom festivalu.",
+    title: "Verifikovani muzičari",
+    description: "Sarađujemo samo sa proverenim profesionalcima, uključujući učesnike i pobednike Guče.",
     icon: "trophy",
   },
   {
-    title: "Širok repertoar",
-    description: "Od tradicionalnih kola do modernih hitova - repertoar prilagođen vašim željama.",
+    title: "Širok izbor",
+    description: "Preko 50 trubača i 15 orkestara u našoj bazi - pronalazimo savršeno rešenje za svaku priliku.",
     icon: "music",
   },
   {
-    title: "Profesionalan nastup",
-    description: "Elegantne uniforme ili narodne nošnje, tačnost i posvećenost svakom događaju.",
+    title: "Kompletna organizacija",
+    description: "Mi se brinemo o svemu - od izbora orkestra do finalizacije nastupa. Vi samo uživate!",
     icon: "professional",
   },
   {
-    title: "Dostupnost",
-    description: "Pokrivamo cele Srbiju i region - dolazimo na vašu lokaciju.",
+    title: "Pokrivamo region",
+    description: "Srbija, Bosna i Hercegovina, Hrvatska, Crna Gora, Slovenija, Austrija - dolazimo svuda.",
     icon: "location",
   },
   {
-    title: "Fleksibilnost",
-    description: "Prilagođavamo se vašim potrebama i budžetu sa tri različite kategorije usluga.",
+    title: "Transparentne cene",
+    description: "Tri jasne cenovne kategorije (50-1000€) bez skrivenih troškova. Svi dogovori su unapred jasni.",
     icon: "flexible",
+  },
+];
+
+// Tipovi slavlja
+export const eventTypes = [
+  {
+    title: "Trubači za svadbe",
+    description: "Najvažniji dan u vašem životu zaslužuje vrhunsku muziku. Naši trubači će stvoriti nezaboravnu atmosferu za vas i vaše goste, od dolaska mladenaca do poslednjeg kola.",
+    icon: "wedding",
+    keywords: "trubači za svadbu, svirka za venčanje, svadba trubači"
+  },
+  {
+    title: "Trubači za slave",
+    description: "Krsna slava je tradicionalna srpska proslava koja zahteva autentičnu muziku. Naši trubači poznaju sve tradicionalne pesme i ceremonije vezane za slavsko veselje.",
+    icon: "slava",
+    keywords: "trubači za slavu, slavska muzika, tradicionalni orkestar"
+  },
+  {
+    title: "Trubači za rođendane",
+    description: "Učinite rođendansku proslavu posebnom sa živom trubačkom muzikom. Bilo da je jubilej, 18. rođendan ili bilo koja druga proslava, donosimo radost i veselje.",
+    icon: "birthday",
+    keywords: "trubači za rođendan, rođendanska proslava, muzika za rođendan"
+  },
+  {
+    title: "Trubači za sahrane",
+    description: "U teškim trenucima potrebna je dostojanstvena i emotivna muzika. Naši muzičari pristupaju sa puno poštovanja i profesionalizma tokom opraštanja od vaših najmilijih.",
+    icon: "funeral",
+    keywords: "trubači za sahranu, pogrebna muzika, trubači za ispraćaj"
+  },
+  {
+    title: "Trubači za proslavu",
+    description: "Bilo kakva proslava - firmski događaj, promocija, godišnjica, domjenak - naša muzika će doneti pravu atmosferu i ostaviti nezaboravan utisak na sve prisutne.",
+    icon: "party",
+    keywords: "trubači za proslavu, živа muzika, trubački orkestar"
+  },
+  {
+    title: "Trubači za maturu",
+    description: "Završetak školovanja je važan momenat koji se slavi uz najbolje društvo i muziku. Naši trubači znaju sve maturske hitove i stvorit će savršenu žurku.",
+    icon: "graduation",
+    keywords: "trubači za maturu, maturska proslava, trubači za diplomu"
+  },
+  {
+    title: "Trubači za svečanosti",
+    description: "Od državnih svečanosti do privatnih ceremonija, naši profesionalni trubači su tu da svojim nastupom podigne svečanost na viši nivo.",
+    icon: "ceremony",
+    keywords: "trubači za svečanost, ceremonijalna muzika, protokolarna muzika"
+  },
+  {
+    title: "Trubači za krštenja",
+    description: "Veselje povodom krštenja vašeg deteta zaslužuje toplu i radosnu atmosferu. Naš repertoar uključuje i pesme prikladne za ovu posebnu priliku.",
+    icon: "baptism",
+    keywords: "trubači za krštenje, krsna slava muzika, tradicionalno veselje"
   },
 ];

@@ -5,8 +5,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Trubači Ristić | Profesionalni Trubači za Svadbe i Proslave | Srbija",
-  description: "Profesionalni trubači Ristić - Povoljne cene od 50€ do 1000€. Učesnici i pobednici Guče. 15+ godina iskustva na svadbama, slavama i proslavama širom Srbije i regiona. Rezervišite odmah!",
+  title: "Agencija za Trubače | Profesionalni Trubači za Svadbe, Slave i Proslave | Srbija",
+  description: "Vodeca agencija za angažovanje profesionalnih trubača. Cene od 50€ do 1000€. Učesnici i pobednici Guče. Trubači za svadbe, slave, rođendane i sve proslave širom Srbije i regiona. Pozovite nas!",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -19,11 +19,13 @@ export const metadata: Metadata = {
   keywords: [
     "trubači",
     "trubači za svadbu",
+    "trubači za slavu",
+    "trubači za rođendan",
+    "trubači za sahranu",
     "trubači Srbija",
     "trubači Guča",
     "pobednici Guče",
     "trubači za proslavu",
-    "trubači za slavu",
     "profesionalni trubači",
     "trubači cena",
     "povoljni trubači",
@@ -31,24 +33,28 @@ export const metadata: Metadata = {
     "trubači za svadbe",
     "trubački orkestar",
     "trubači za venčanje",
-    "trubači za rođendan",
     "najbolji trubači",
     "trubači regija",
-    "Ristić trubači",
     "narodni orkestar",
     "trubačka muzika",
+    "agencija za trubače",
+    "menadžer trubača",
+    "booking trubači",
+    "rezervacija trubača",
+    "trubači za maturu",
+    "trubači za krštenje",
   ],
   openGraph: {
-    title: "Trubači Ristić | Profesionalni Trubači za Svadbe i Proslave",
-    description: "Profesionalni trubači sa više od 15 godina iskustva. Učesnici i pobednici Guče. Cene od 50€ do 1000€. Pokrivamo celu Srbiju i region.",
+    title: "Agencija za Trubače | Profesionalni Trubači za Sve Proslave",
+    description: "Vodeca agencija za najbolje trubače u Srbiji. Učesnici i pobednici Guče. Cene od 50€ do 1000€. Trubači za svadbe, slave, rođendane i sve vrste proslava.",
     type: "website",
     locale: "sr_RS",
-    siteName: "Trubači Ristić",
+    siteName: "Agencija za Trubače",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Trubači Ristić | Profesionalni Trubači za Svadbe i Proslave",
-    description: "Profesionalni trubači sa više od 15 godina iskustva. Učesnici i pobednici Guče.",
+    title: "Agencija za Trubače | Profesionalni Trubači za Sve Proslave",
+    description: "Vodeca agencija za najbolje trubače. Učesnici i pobednici Guče. Cene od 50€ do 1000€.",
   },
   robots: {
     index: true,

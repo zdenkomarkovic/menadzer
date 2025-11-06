@@ -3,8 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { services, benefits, faqs, contactInfo } from "@/constants/index";
-import { CheckIcon, PhoneIcon, Music, Trophy, Users, MapPin, Clock, Star } from "lucide-react";
+import { services, benefits, faqs, contactInfo, eventTypes } from "@/constants/index";
+import { CheckIcon, PhoneIcon, Music, Trophy, Users, MapPin, Clock, Star, Heart, Church, Cake, FlowerIcon, PartyPopper, GraduationCap, Award } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Accordion,
@@ -36,11 +36,10 @@ function HeroSection() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-            Profesionalni Trubači Ristić
+            Profesionalni Trubači
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Donosimo radost, tradiciju i nezaboravnu atmosferu na svadbe, slave i sve vrste proslava
-            širom Srbije i regiona
+            Vaša agencija za najbolje trubače u Srbiji i regionu. Organizujemo nastupe za svadbe, slave i sve vrste proslava sa vrhunskim muzičarima
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="#usluge">
@@ -160,6 +159,90 @@ function ServicesSection() {
   );
 }
 
+// Sekcija za tipove slavlja
+function EventTypesSection() {
+  const iconMap: Record<string, React.ElementType> = {
+    wedding: Heart,
+    slava: Church,
+    birthday: Cake,
+    funeral: FlowerIcon,
+    party: PartyPopper,
+    graduation: GraduationCap,
+    ceremony: Award,
+    baptism: Church,
+  };
+
+  return (
+    <section id="slavlja" className="py-20 bg-muted">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
+            Za koja slavlja sviramo?
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            Naši profesionalni trubači su tu za svaku priliku - od najradosnijih do najsvečanijih trenutaka u vašem životu
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {eventTypes.map((event, index) => {
+            const Icon = iconMap[event.icon];
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full hover:shadow-xl hover:border-primary transition-all duration-300">
+                  <CardHeader>
+                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                      <Icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <CardTitle className="text-lg text-center">{event.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-sm text-center">{event.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <p className="text-lg text-muted-foreground mb-6">
+            Bilo da tražite trubače za svadbu, trubače za slavu, trubače za rođendan ili bilo koju drugu priliku -
+            tu smo da vaš događaj učinimo nezaboravnim!
+          </p>
+          <Link href={`tel:${contactInfo.phone}`}>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors"
+            >
+              Pozovite nas i rezervišite termin
+            </motion.button>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 // O nama sekcija sa puno SEO teksta
 function AboutSection() {
   return (
@@ -173,42 +256,40 @@ function AboutSection() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-left">
-              O nama - Tradicija i Kvalitet
+              O nama - Vaša agencija za najbolje trubače
             </h2>
             <div className="space-y-4 text-lg">
               <p>
-                <strong>Trubači Ristić</strong> su sinonim za kvalitet, profesionalizam i
-                nezaboravnu atmosferu na proslavama širom Srbije i regiona. Sa više od 15 godina
-                iskustva, naši trubači su postali omiljeni izbor za svadbe, slave, rođendane i sve
-                vrste proslave gde je potrebna autentična trubačka muzika.
+                Dobrodošli u <strong>vodeću agenciju za angažovanje trubača</strong> u Srbiji i regionu!
+                Sa više od 15 godina iskustva u industriji, povezujemo klijente sa najboljim trubačkim
+                orkestrima za sve vrste proslava - od intimnih porodičnih okupljanja do velikih svadbi i korporativnih događaja.
               </p>
               <p>
-                Naš tim čine <strong>profesionalni muzičari</strong> koji su učesnici i pobednici
-                najpoznatijeg trubačkog festivala u <strong>Guči</strong>. Ova prestižna titula
-                garantuje vrhunski kvalitet sviranja i bogat repertoar koji obuhvata kako
-                tradicionalnu narodnu muziku, tako i savremene hitove prilagođene trubu.
+                Kao <strong>profesionalni menadžment za trubače</strong>, sarađujemo isključivo sa
+                proverenim muzičarima visokog kvaliteta, uključujući <strong>učesnike i pobednike
+                festivala u Guči</strong>. Naša baza obuhvata preko 50 trubača i 15 različitih orkestara,
+                što nam omogućava da za svaku priliku pronađemo savršeno rešenje.
               </p>
               <p>
-                Prepoznatljivi smo po <strong>elegantnim uniformama</strong> i mogućnosti nastupa u
-                autentičnim <strong>narodnim nošnjama</strong>, što našim klijentima pruža dodatnu
-                vrednost i jedinstven vizuelni doživljaj. Svaki naš nastup je pažljivo pripremljen i
-                prilagođen specifičnim zahtevima klijenata.
+                Naša agencija funkcioniše kao <strong>vaš lični koncijerg za trubačku muziku</strong>.
+                Mi preuzimamo svu organizaciju - od prvog kontakta, preko selekcije odgovarajućeg orkestra,
+                dogovora repertoara, pa sve do finalizacije nastupa. Vi samo uživate u savršenoj muzici!
               </p>
               <p>
-                Nuđimo <strong>tri kategorije usluga</strong> kako bismo zadovoljili različite
-                budžete i potrebe - od povoljnih trubača za intimnije proslave, preko
-                profesionalnih bendova za veće događaje, do ekskluzivnih nastupa pobednika Guče za
-                one koji žele samo najbolje.
+                Nudimo <strong>tri cenovne kategorije</strong> kako bismo zadovoljili različite budžete:
+                od pristupačnih opcija za manje proslave (50-100€), preko srednjeg ranga profesionalaca
+                (100-500€), do ekskluzivnih pobednika Guče (500-1000€). Garantujemo transparentnost cena
+                i profesionalnu uslugu bez skrivenih troškova.
               </p>
               <p>
                 Pokrivamo <strong>celu Srbiju i region</strong> uključujući Bosnu i Hercegovinu,
-                Hrvatsku, Crnu Goru i druge države bivše Jugoslavije. Bez obzira gde se vaša
-                proslava održava, tu smo da stvorimo nezaboravnu atmosferu.
+                Hrvatsku, Crnu Goru, Sloveniju i Austriju. Bez obzira gde se vaš događaj održava,
+                imamo trubače spremne da dođu i oduševе goste autentičnom balkanskom muzikom.
               </p>
               <p>
-                Naša misija je da svaku proslavu učinimo posebnom, da sačuvamo tradiciju trubačke
-                muzike i da našim nastupima donesemo radost i zadovoljstvo svakom gostu. Verujte
-                nam vaš najvažniji dan - mi ćemo se pobrinuti da muzika bude savršena!
+                Naša misija je jednostavna: <strong>spajamo ljude sa najboljim trubačima</strong> i
+                stvaramo nezaboravna iskustva. Verujte nam organizaciju muzike za vaš najvažniji dan -
+                mi se brinem о svim detaljima da bi vi mogli potpuno da uživate!
               </p>
             </div>
           </motion.div>
@@ -459,6 +540,7 @@ export default function Home() {
     <main className="overflow-x-hidden">
       <HeroSection />
       <ServicesSection />
+      <EventTypesSection />
       <AboutSection />
       <BenefitsSection />
       <GallerySection />
