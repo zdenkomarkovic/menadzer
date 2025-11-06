@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import Logo from "../public/android-chrome-192x192.png";
 import Link from "next/link";
 import { MenuIcon, PhoneIcon } from "lucide-react";
+import Logo from "./Logo";
 
 import {
   Sheet,
@@ -86,14 +85,12 @@ export default function Header() {
       }  fixed top-0 left-0 right-0 z-[10] transition-colors`}
     >
       <nav className="flex items-center justify-between px-8 py-4 max-w-[80rem] w-full text-primary font-bold">
-        <Link href="/" className="">
-          <Image
-            src={Logo}
-            alt="dm rustic 24"
-            width={50}
-            height={50}
-            className="rounded-full"
-          />
+        <Link href="/" className="flex items-center gap-3 group">
+          <Logo className="w-14 h-14 transition-transform group-hover:scale-110" />
+          <div className="hidden md:flex flex-col">
+            <span className="text-sm font-bold leading-tight">Menadžer za</span>
+            <span className="text-lg font-bold leading-tight text-gradient">Trubače</span>
+          </div>
         </Link>
         <DesktopNav />
         <Link href={`tel:${contactInfo.phone}`}>
