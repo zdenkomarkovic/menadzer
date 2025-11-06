@@ -120,11 +120,6 @@ function ServicesSection() {
                   service.featured ? "border-primary border-2" : "border-border"
                 }`}
               >
-                {service.featured && (
-                  <div className="bg-gradient-primary text-primary-foreground text-center py-2 font-bold">
-                    ⭐ Najpopularnije
-                  </div>
-                )}
                 <div className="relative h-64 w-full">
                   <Image
                     src={service.image}
@@ -132,6 +127,11 @@ function ServicesSection() {
                     fill
                     className="object-cover rounded-t-lg"
                   />
+                  {service.featured && (
+                    <div className="absolute top-4 right-4 bg-gradient-primary text-primary-foreground px-4 py-2 rounded-lg font-bold shadow-lg z-10">
+                      ⭐ Najpopularnije
+                    </div>
+                  )}
                 </div>
                 <CardHeader>
                   <CardTitle className="text-2xl text-left">{service.title}</CardTitle>
