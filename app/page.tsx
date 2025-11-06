@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { services, benefits, faqs, contactInfo, eventTypes } from "@/constants/index";
 import { CheckIcon, PhoneIcon, Music, Trophy, Users, MapPin, Clock, Star, Heart, Church, Cake, FlowerIcon, PartyPopper, GraduationCap, Award } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,6 +12,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useRef } from "react";
 
 // Hero sekcija
 function HeroSection() {
@@ -492,21 +493,48 @@ function FAQSection() {
   );
 }
 
-// CTA sekcija
+// CTA sekcija sa parallax efektom
 function CTASection() {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Parallax efekat - slika se pomera sporije nego sadržaj
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+
   return (
-    <section className="py-20 bg-gradient-primary text-primary-foreground">
-      <div className="container mx-auto px-4 text-center">
+    <section ref={sectionRef} className="relative py-32 overflow-hidden">
+      {/* Parallax pozadinska slika */}
+      <motion.div
+        style={{ y }}
+        className="absolute inset-0 z-0"
+      >
+        <Image
+          src="/images/1762257288194.png"
+          alt="Trubači pozadina"
+          fill
+          className="object-cover"
+          priority={false}
+        />
+        {/* Overlay za providnost */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-[#0a0a0a]/70 to-[#0a0a0a]/80" />
+      </motion.div>
+
+      {/* CTA sadržaj preko slike */}
+      <div className="relative z-10 container mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="backdrop-blur-sm bg-[#0a0a0a]/40 rounded-3xl p-8 md:p-12 border border-primary/20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
             Spremni da rezervišete naše trubače?
           </h2>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-gray-200">
             Kontaktirajte nas danas i osigurajte nezaboravnu atmosferu za vašu proslavu
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -514,7 +542,7 @@ function CTASection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#0a0a0a] text-foreground px-8 py-4 rounded-full text-lg font-bold hover:bg-[#1a1a1a] transition-colors shadow-lg"
+                className="bg-gradient-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-bold hover:shadow-2xl transition-all shadow-lg"
               >
                 Kontaktirajte nas
               </motion.button>
@@ -523,7 +551,7 @@ function CTASection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-transparent backdrop-blur-sm text-primary-foreground border-2 border-primary-foreground px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#0a0a0a] transition-colors flex items-center gap-2"
+                className="bg-white/10 backdrop-blur-sm text-white border-2 border-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-all flex items-center gap-2"
               >
                 <PhoneIcon className="w-5 h-5" />
                 {contactInfo.phoneDisplay}
