@@ -16,24 +16,24 @@ h3 {
 }
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
     --primary: 45 96% 53%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 40 15% 95%;
-    --muted-foreground: 0 0% 20%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 9%;
+    --muted-foreground: 0 0% 70%;
     --accent: 45 96% 53%;
-    --accent-foreground: 0 0% 0%;
+    --accent-foreground: 0 0% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 85%;
-    --input: 0 0% 89.8%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
     --ring: 45 96% 53%;
     --chart-1: 45 96% 53%;
     --chart-2: 0 0% 20%;
@@ -86,4 +86,30 @@ h3 {
 }
 .scrollToTopButton.visible {
   opacity: 1;
+}
+
+/* Gradijenti */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #F5D014 0%, #FFE55C 100%);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.bg-gradient-card {
+  background: linear-gradient(135deg, #141414 0%, #1f1f1f 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #F5D014 0%, #FFE55C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.border-gradient {
+  border: 2px solid transparent;
+  background: linear-gradient(#141414, #141414) padding-box,
+              linear-gradient(135deg, #F5D014, #FFE55C) border-box;
 }

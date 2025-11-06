@@ -46,7 +46,7 @@ function HeroSection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors"
+                className="bg-gradient-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-bold shadow-lg hover:shadow-2xl transition-all"
               >
                 Pogledajte naše usluge
               </motion.button>
@@ -55,7 +55,7 @@ function HeroSection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white/10 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/20 transition-colors flex items-center gap-2"
+                className="bg-white/5 backdrop-blur-sm text-white border-2 border-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gradient-primary hover:text-primary-foreground transition-all flex items-center gap-2"
               >
                 <PhoneIcon className="w-5 h-5" />
                 Pozovite nas
@@ -91,7 +91,7 @@ function HeroSection() {
 // Sekcija sa uslugama
 function ServicesSection() {
   return (
-    <section id="usluge" className="py-20 bg-background">
+    <section id="usluge" className="py-20 bg-gradient-dark">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -116,13 +116,13 @@ function ServicesSection() {
               viewport={{ once: true }}
             >
               <Card
-                className={`h-full hover:shadow-xl transition-shadow ${
-                  service.featured ? "border-primary border-2" : ""
+                className={`h-full bg-gradient-card hover:shadow-2xl hover:shadow-primary/20 transition-all border ${
+                  service.featured ? "border-primary border-2" : "border-border"
                 }`}
               >
                 {service.featured && (
-                  <div className="bg-primary text-primary-foreground text-center py-2 font-semibold">
-                    Najpopularnije
+                  <div className="bg-gradient-primary text-primary-foreground text-center py-2 font-bold">
+                    ⭐ Najpopularnije
                   </div>
                 )}
                 <div className="relative h-64 w-full">
@@ -173,7 +173,7 @@ function EventTypesSection() {
   };
 
   return (
-    <section id="slavlja" className="py-20 bg-muted">
+    <section id="slavlja" className="py-20 bg-[#0d0d0d]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -201,12 +201,12 @@ function EventTypesSection() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-xl hover:border-primary transition-all duration-300">
+                <Card className="h-full bg-gradient-card hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 border-border">
                   <CardHeader>
-                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                      <Icon className="w-8 h-8 text-primary" />
+                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+                      <Icon className="w-8 h-8 text-primary-foreground" />
                     </div>
-                    <CardTitle className="text-lg text-center">{event.title}</CardTitle>
+                    <CardTitle className="text-lg text-center text-primary">{event.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground text-sm text-center">{event.description}</p>
@@ -232,7 +232,7 @@ function EventTypesSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors"
+              className="bg-gradient-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-bold shadow-lg hover:shadow-2xl transition-all"
             >
               Pozovite nas i rezervišite termin
             </motion.button>
@@ -246,7 +246,7 @@ function EventTypesSection() {
 // O nama sekcija sa puno SEO teksta
 function AboutSection() {
   return (
-    <section id="o-nama" className="py-20 bg-muted">
+    <section id="o-nama" className="py-20 bg-[#141414]">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -344,7 +344,7 @@ function BenefitsSection() {
   };
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-[#0a0a0a]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -372,12 +372,12 @@ function BenefitsSection() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="h-full bg-gradient-card hover:shadow-2xl hover:shadow-primary/20 transition-all border-border">
                   <CardHeader>
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                      <Icon className="w-8 h-8 text-primary" />
+                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4">
+                      <Icon className="w-8 h-8 text-primary-foreground" />
                     </div>
-                    <CardTitle className="text-xl text-left">{benefit.title}</CardTitle>
+                    <CardTitle className="text-xl text-left text-primary">{benefit.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">{benefit.description}</p>
@@ -407,7 +407,7 @@ function GallerySection() {
   ];
 
   return (
-    <section id="galerija" className="py-20 bg-muted">
+    <section id="galerija" className="py-20 bg-[#141414]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -449,7 +449,7 @@ function GallerySection() {
 // FAQ sekcija
 function FAQSection() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-[#0d0d0d]">
       <div className="container mx-auto px-4 max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -493,7 +493,7 @@ function FAQSection() {
 // CTA sekcija
 function CTASection() {
   return (
-    <section className="py-20 bg-primary text-primary-foreground">
+    <section className="py-20 bg-gradient-primary text-primary-foreground">
       <div className="container mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -512,7 +512,7 @@ function CTASection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/90 transition-colors"
+                className="bg-[#0a0a0a] text-foreground px-8 py-4 rounded-full text-lg font-bold hover:bg-[#1a1a1a] transition-colors shadow-lg"
               >
                 Kontaktirajte nas
               </motion.button>
@@ -521,7 +521,7 @@ function CTASection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-primary-foreground/10 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-foreground/20 transition-colors flex items-center gap-2"
+                className="bg-transparent backdrop-blur-sm text-primary-foreground border-2 border-primary-foreground px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#0a0a0a] transition-colors flex items-center gap-2"
               >
                 <PhoneIcon className="w-5 h-5" />
                 {contactInfo.phoneDisplay}

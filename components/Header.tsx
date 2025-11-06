@@ -98,11 +98,9 @@ export default function Header() {
         <DesktopNav />
         <Link href={`tel:${contactInfo.phone}`}>
           <motion.button
-            whileHover={{
-              color: "hsl(var(--foreground))",
-              backgroundColor: "hsl(var(--primary))",
-            }}
-            className=" items-center justify-center rounded-full text-primary border-primary border-2 text-sm md:text-lg py-1 px-2 md:py-2 md:px-4 transition-colors flex"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="items-center justify-center rounded-full bg-gradient-primary text-primary-foreground text-sm md:text-lg py-1 px-2 md:py-2 md:px-4 transition-all flex font-bold shadow-lg hover:shadow-xl gap-1"
           >
             <PhoneIcon />
             <p className="">{contactInfo.phoneDisplay}</p>
