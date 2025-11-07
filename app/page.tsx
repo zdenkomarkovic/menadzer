@@ -82,7 +82,7 @@ function HeroSection() {
                 Pogledajte naše usluge
               </motion.button>
             </Link>
-            <Link href={`tel:${contactInfo.phone}`}>
+            <Link href={`tel:${contactInfo.phone1}`}>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -274,7 +274,7 @@ function EventTypesSection() {
             rođendan ili bilo koju drugu priliku - tu smo da vaš događaj učinimo
             nezaboravnim!
           </p>
-          <Link href={`tel:${contactInfo.phone}`}>
+          <Link href={`tel:${contactInfo.phone1}`}>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -615,14 +615,14 @@ function CTASection() {
                 Kontaktirajte nas
               </motion.button>
             </Link>
-            <Link href={`tel:${contactInfo.phone}`}>
+            <Link href={`tel:${contactInfo.phone1}`}>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white/10 backdrop-blur-sm text-white border-2 border-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-all flex items-center gap-2"
               >
                 <PhoneIcon className="w-5 h-5" />
-                {contactInfo.phoneDisplay}
+                {contactInfo.phone1Display}
               </motion.button>
             </Link>
           </div>
