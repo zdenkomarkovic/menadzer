@@ -103,7 +103,7 @@ export default function Header() {
               className="items-center justify-center rounded-full bg-gradient-primary text-primary-foreground text-xs md:text-base py-1 px-2 md:py-2 md:px-3 transition-all flex font-bold shadow-lg hover:shadow-xl gap-1"
             >
               <PhoneIcon className="w-4 h-4" />
-              <span className="hidden lg:inline">{contactInfo.phone1Display}</span>
+              <span className="">{contactInfo.phone1Display}</span>
             </motion.button>
           </Link>
         </div>
