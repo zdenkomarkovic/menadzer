@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { contactInfo } from "@/constants/index";
-import { MailIcon } from "lucide-react";
+import { MailIcon, PhoneIcon } from "lucide-react";
 import { FaWhatsapp, FaViber, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
@@ -26,20 +26,37 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold text-primary mb-4 text-left">Kontakt</h3>
             <div className="space-y-3 text-sm">
-              <Link href={`https://wa.me/${contactInfo.phoneWhatsApp.replace(/\+/g, '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
-                <FaWhatsapp className="w-5 h-5 text-green-500" />
-                <div>
-                  <div className="font-semibold">WhatsApp</div>
-                  <div>{contactInfo.phoneWhatsAppDisplay}</div>
+              {/* Prvi broj - Telefon i Viber */}
+              <div>
+                <div className="font-semibold text-primary mb-1">{contactInfo.phone1Display}</div>
+                <div className="flex gap-3 ml-1">
+                  <Link href={`tel:${contactInfo.phone1}`} className="flex items-center gap-1 hover:text-primary transition-colors">
+                    <PhoneIcon className="w-4 h-4" />
+                    <span>Pozovi</span>
+                  </Link>
+                  <Link href={`viber://chat?number=${contactInfo.phone1.replace(/\+/g, '%2B')}`} className="flex items-center gap-1 hover:text-purple-500 transition-colors">
+                    <FaViber className="w-4 h-4 text-purple-500" />
+                    <span>Viber</span>
+                  </Link>
                 </div>
-              </Link>
-              <Link href={`viber://chat?number=${contactInfo.phoneViber.replace(/\+/g, '%2B')}`} className="flex items-center gap-2 hover:text-primary transition-colors">
-                <FaViber className="w-5 h-5 text-purple-500" />
-                <div>
-                  <div className="font-semibold">Viber</div>
-                  <div>{contactInfo.phoneViberDisplay}</div>
+              </div>
+
+              {/* Drugi broj - Telefon i WhatsApp */}
+              <div>
+                <div className="font-semibold text-primary mb-1">{contactInfo.phone2Display}</div>
+                <div className="flex gap-3 ml-1">
+                  <Link href={`tel:${contactInfo.phone2}`} className="flex items-center gap-1 hover:text-primary transition-colors">
+                    <PhoneIcon className="w-4 h-4" />
+                    <span>Pozovi</span>
+                  </Link>
+                  <Link href={`https://wa.me/${contactInfo.phone2.replace(/\+/g, '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-green-500 transition-colors">
+                    <FaWhatsapp className="w-4 h-4 text-green-500" />
+                    <span>WhatsApp</span>
+                  </Link>
                 </div>
-              </Link>
+              </div>
+
+              {/* Instagram */}
               <Link href={contactInfo.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <FaInstagram className="w-5 h-5 text-pink-500" />
                 <div>
@@ -47,6 +64,8 @@ export default function Footer() {
                   <div>{contactInfo.instagramHandle}</div>
                 </div>
               </Link>
+
+              {/* Email */}
               <Link href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 hover:text-primary transition-colors">
                 <MailIcon className="w-4 h-4" />
                 {contactInfo.email}

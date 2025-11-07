@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
 import { contactInfo } from "@/constants/index";
-import { MailIcon, MapPinIcon, ClockIcon } from "lucide-react";
+import { MailIcon, MapPinIcon, ClockIcon, PhoneIcon } from "lucide-react";
 import { FaWhatsapp, FaViber, FaInstagram } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
@@ -48,52 +48,78 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-4">
-              {/* WhatsApp kartica */}
+              {/* Telefon 1 - Poziv i Viber */}
               <Card className="bg-gradient-card border-border hover:shadow-2xl hover:shadow-primary/20 transition-all">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
-                      <FaWhatsapp className="w-6 h-6 text-primary-foreground" />
+                      <PhoneIcon className="w-6 h-6 text-primary-foreground" />
                     </div>
-                    <div>
+                    <div className="w-full">
                       <h3 className="text-xl font-bold text-primary mb-2 text-left">
-                        WhatsApp
+                        Telefon 1
                       </h3>
-                      <Link
-                        href={`https://wa.me/${contactInfo.phoneWhatsApp.replace(/\+/g, '')}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-lg hover:text-primary transition-colors"
-                      >
-                        {contactInfo.phoneWhatsAppDisplay}
-                      </Link>
-                      <p className="text-sm text-muted-foreground mt-2">
-                        Brza komunikacija 24/7
+                      <div className="text-lg font-semibold mb-3">
+                        {contactInfo.phone1Display}
+                      </div>
+                      <div className="flex gap-3">
+                        <Link
+                          href={`tel:${contactInfo.phone1}`}
+                          className="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors"
+                        >
+                          <PhoneIcon className="w-4 h-4" />
+                          <span>Pozovi</span>
+                        </Link>
+                        <Link
+                          href={`viber://chat?number=${contactInfo.phone1.replace(/\+/g, '%2B')}`}
+                          className="flex items-center gap-2 px-4 py-2 bg-purple-500/10 hover:bg-purple-500/20 rounded-lg transition-colors"
+                        >
+                          <FaViber className="w-4 h-4 text-purple-500" />
+                          <span>Viber</span>
+                        </Link>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-3">
+                        Dostupni 24/7 za hitne zahteve
                       </p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Viber kartica */}
+              {/* Telefon 2 - Poziv i WhatsApp */}
               <Card className="bg-gradient-card border-border hover:shadow-2xl hover:shadow-primary/20 transition-all">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
-                      <FaViber className="w-6 h-6 text-primary-foreground" />
+                      <PhoneIcon className="w-6 h-6 text-primary-foreground" />
                     </div>
-                    <div>
+                    <div className="w-full">
                       <h3 className="text-xl font-bold text-primary mb-2 text-left">
-                        Viber
+                        Telefon 2
                       </h3>
-                      <Link
-                        href={`viber://chat?number=${contactInfo.phoneViber.replace(/\+/g, '%2B')}`}
-                        className="text-lg hover:text-primary transition-colors"
-                      >
-                        {contactInfo.phoneViberDisplay}
-                      </Link>
-                      <p className="text-sm text-muted-foreground mt-2">
-                        Dostupni 24/7 za hitne zahteve
+                      <div className="text-lg font-semibold mb-3">
+                        {contactInfo.phone2Display}
+                      </div>
+                      <div className="flex gap-3">
+                        <Link
+                          href={`tel:${contactInfo.phone2}`}
+                          className="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors"
+                        >
+                          <PhoneIcon className="w-4 h-4" />
+                          <span>Pozovi</span>
+                        </Link>
+                        <Link
+                          href={`https://wa.me/${contactInfo.phone2.replace(/\+/g, '')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-green-500/10 hover:bg-green-500/20 rounded-lg transition-colors"
+                        >
+                          <FaWhatsapp className="w-4 h-4 text-green-500" />
+                          <span>WhatsApp</span>
+                        </Link>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-3">
+                        Brza komunikacija 24/7
                       </p>
                     </div>
                   </div>
