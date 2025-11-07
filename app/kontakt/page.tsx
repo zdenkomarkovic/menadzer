@@ -62,7 +62,7 @@ export default function ContactPage() {
                       <div className="text-lg font-semibold mb-3">
                         {contactInfo.phone1Display}
                       </div>
-                      <div className="flex gap-3">
+                      <div className="flex gap-2 flex-wrap">
                         <Link
                           href={`tel:${contactInfo.phone1}`}
                           className="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors"
@@ -76,6 +76,15 @@ export default function ContactPage() {
                         >
                           <FaViber className="w-4 h-4 text-purple-500" />
                           <span>Viber</span>
+                        </Link>
+                        <Link
+                          href={`https://wa.me/${contactInfo.phone1.replace(/\+/g, '')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 bg-green-500/10 hover:bg-green-500/20 rounded-lg transition-colors"
+                        >
+                          <FaWhatsapp className="w-4 h-4 text-green-500" />
+                          <span>WhatsApp</span>
                         </Link>
                       </div>
                       <p className="text-sm text-muted-foreground mt-3">
@@ -100,13 +109,20 @@ export default function ContactPage() {
                       <div className="text-lg font-semibold mb-3">
                         {contactInfo.phone2Display}
                       </div>
-                      <div className="flex gap-3">
+                      <div className="flex gap-2 flex-wrap">
                         <Link
                           href={`tel:${contactInfo.phone2}`}
                           className="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors"
                         >
                           <PhoneIcon className="w-4 h-4" />
                           <span>Pozovi</span>
+                        </Link>
+                        <Link
+                          href={`viber://chat?number=${contactInfo.phone2.replace(/\+/g, '%2B')}`}
+                          className="flex items-center gap-2 px-4 py-2 bg-purple-500/10 hover:bg-purple-500/20 rounded-lg transition-colors"
+                        >
+                          <FaViber className="w-4 h-4 text-purple-500" />
+                          <span>Viber</span>
                         </Link>
                         <Link
                           href={`https://wa.me/${contactInfo.phone2.replace(/\+/g, '')}`}

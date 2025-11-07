@@ -26,10 +26,10 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold text-primary mb-4 text-left">Kontakt</h3>
             <div className="space-y-3 text-sm">
-              {/* Prvi broj - Telefon i Viber */}
+              {/* Prvi broj - Telefon, Viber i WhatsApp */}
               <div>
                 <div className="font-semibold text-primary mb-1">{contactInfo.phone1Display}</div>
-                <div className="flex gap-3 ml-1">
+                <div className="flex gap-2 ml-1 flex-wrap">
                   <Link href={`tel:${contactInfo.phone1}`} className="flex items-center gap-1 hover:text-primary transition-colors">
                     <PhoneIcon className="w-4 h-4" />
                     <span>Pozovi</span>
@@ -38,16 +38,24 @@ export default function Footer() {
                     <FaViber className="w-4 h-4 text-purple-500" />
                     <span>Viber</span>
                   </Link>
+                  <Link href={`https://wa.me/${contactInfo.phone1.replace(/\+/g, '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-green-500 transition-colors">
+                    <FaWhatsapp className="w-4 h-4 text-green-500" />
+                    <span>WhatsApp</span>
+                  </Link>
                 </div>
               </div>
 
-              {/* Drugi broj - Telefon i WhatsApp */}
+              {/* Drugi broj - Telefon, Viber i WhatsApp */}
               <div>
                 <div className="font-semibold text-primary mb-1">{contactInfo.phone2Display}</div>
-                <div className="flex gap-3 ml-1">
+                <div className="flex gap-2 ml-1 flex-wrap">
                   <Link href={`tel:${contactInfo.phone2}`} className="flex items-center gap-1 hover:text-primary transition-colors">
                     <PhoneIcon className="w-4 h-4" />
                     <span>Pozovi</span>
+                  </Link>
+                  <Link href={`viber://chat?number=${contactInfo.phone2.replace(/\+/g, '%2B')}`} className="flex items-center gap-1 hover:text-purple-500 transition-colors">
+                    <FaViber className="w-4 h-4 text-purple-500" />
+                    <span>Viber</span>
                   </Link>
                   <Link href={`https://wa.me/${contactInfo.phone2.replace(/\+/g, '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-green-500 transition-colors">
                     <FaWhatsapp className="w-4 h-4 text-green-500" />
