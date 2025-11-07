@@ -52,14 +52,14 @@ function HeroSection() {
                 Pogledajte naše usluge
               </motion.button>
             </Link>
-            <Link href={`tel:${contactInfo.phone}`}>
+            <Link href={`https://wa.me/${contactInfo.phoneWhatsApp.replace(/\+/g, '')}`} target="_blank" rel="noopener noreferrer">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white/5 backdrop-blur-sm text-white border-2 border-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gradient-primary hover:text-primary-foreground transition-all flex items-center gap-2"
               >
                 <PhoneIcon className="w-5 h-5" />
-                Pozovite nas
+                WhatsApp
               </motion.button>
             </Link>
           </div>
@@ -229,13 +229,13 @@ function EventTypesSection() {
             Bilo da tražite trubače za svadbu, trubače za slavu, trubače za rođendan ili bilo koju drugu priliku -
             tu smo da vaš događaj učinimo nezaboravnim!
           </p>
-          <Link href={`tel:${contactInfo.phone}`}>
+          <Link href={`https://wa.me/${contactInfo.phoneWhatsApp.replace(/\+/g, '')}`} target="_blank" rel="noopener noreferrer">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-gradient-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-bold shadow-lg hover:shadow-2xl transition-all"
             >
-              Pozovite nas i rezervišite termin
+              WhatsApp - Rezervišite termin
             </motion.button>
           </Link>
         </motion.div>
@@ -547,14 +547,14 @@ function CTASection() {
                 Kontaktirajte nas
               </motion.button>
             </Link>
-            <Link href={`tel:${contactInfo.phone}`}>
+            <Link href={`https://wa.me/${contactInfo.phoneWhatsApp.replace(/\+/g, '')}`} target="_blank" rel="noopener noreferrer">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white/10 backdrop-blur-sm text-white border-2 border-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-all flex items-center gap-2"
               >
                 <PhoneIcon className="w-5 h-5" />
-                {contactInfo.phoneDisplay}
+                {contactInfo.phoneWhatsAppDisplay}
               </motion.button>
             </Link>
           </div>

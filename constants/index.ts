@@ -28,9 +28,13 @@ export const navList = [
 
 // Kontakt informacije
 export const contactInfo = {
-  phone: "+381628978823",
+  phoneViber: "+381628978823",
+  phoneViberDisplay: "+381 62 897 8823",
+  phoneWhatsApp: "+381638800863",
+  phoneWhatsAppDisplay: "+381 63 880 0863",
   email: "risticvladica474@gmail.com",
-  phoneDisplay: "+381 62 897 8823",
+  instagram: "https://www.instagram.com/trubaci.za_veselja",
+  instagramHandle: "@trubaci.za_veselja"
 };
 
 // Kategorije usluga

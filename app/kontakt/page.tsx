@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
 import { contactInfo } from "@/constants/index";
-import { PhoneIcon, MailIcon, MapPinIcon, ClockIcon } from "lucide-react";
+import { MailIcon, MapPinIcon, ClockIcon } from "lucide-react";
+import { FaWhatsapp, FaViber, FaInstagram } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 
@@ -47,25 +48,79 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-4">
-              {/* Telefon kartica */}
+              {/* WhatsApp kartica */}
               <Card className="bg-gradient-card border-border hover:shadow-2xl hover:shadow-primary/20 transition-all">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
-                      <PhoneIcon className="w-6 h-6 text-primary-foreground" />
+                      <FaWhatsapp className="w-6 h-6 text-primary-foreground" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-primary mb-2 text-left">
-                        Pozovite nas
+                        WhatsApp
                       </h3>
                       <Link
-                        href={`tel:${contactInfo.phone}`}
+                        href={`https://wa.me/${contactInfo.phoneWhatsApp.replace(/\+/g, '')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-lg hover:text-primary transition-colors"
                       >
-                        {contactInfo.phoneDisplay}
+                        {contactInfo.phoneWhatsAppDisplay}
+                      </Link>
+                      <p className="text-sm text-muted-foreground mt-2">
+                        Brza komunikacija 24/7
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Viber kartica */}
+              <Card className="bg-gradient-card border-border hover:shadow-2xl hover:shadow-primary/20 transition-all">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <FaViber className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-primary mb-2 text-left">
+                        Viber
+                      </h3>
+                      <Link
+                        href={`viber://chat?number=${contactInfo.phoneViber.replace(/\+/g, '%2B')}`}
+                        className="text-lg hover:text-primary transition-colors"
+                      >
+                        {contactInfo.phoneViberDisplay}
                       </Link>
                       <p className="text-sm text-muted-foreground mt-2">
                         Dostupni 24/7 za hitne zahteve
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Instagram kartica */}
+              <Card className="bg-gradient-card border-border hover:shadow-2xl hover:shadow-primary/20 transition-all">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <FaInstagram className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-primary mb-2 text-left">
+                        Instagram
+                      </h3>
+                      <Link
+                        href={contactInfo.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg hover:text-primary transition-colors"
+                      >
+                        {contactInfo.instagramHandle}
+                      </Link>
+                      <p className="text-sm text-muted-foreground mt-2">
+                        Pratite naše nastupe i aktuelnosti
                       </p>
                     </div>
                   </div>

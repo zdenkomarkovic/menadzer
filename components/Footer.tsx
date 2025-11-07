@@ -2,7 +2,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { contactInfo } from "@/constants/index";
-import { PhoneIcon, MailIcon } from "lucide-react";
+import { MailIcon } from "lucide-react";
+import { FaWhatsapp, FaViber, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -24,10 +25,27 @@ export default function Footer() {
 
           <div>
             <h3 className="text-xl font-bold text-primary mb-4 text-left">Kontakt</h3>
-            <div className="space-y-2 text-sm">
-              <Link href={`tel:${contactInfo.phone}`} className="flex items-center gap-2 hover:text-primary transition-colors">
-                <PhoneIcon className="w-4 h-4" />
-                {contactInfo.phoneDisplay}
+            <div className="space-y-3 text-sm">
+              <Link href={`https://wa.me/${contactInfo.phoneWhatsApp.replace(/\+/g, '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+                <FaWhatsapp className="w-5 h-5 text-green-500" />
+                <div>
+                  <div className="font-semibold">WhatsApp</div>
+                  <div>{contactInfo.phoneWhatsAppDisplay}</div>
+                </div>
+              </Link>
+              <Link href={`viber://chat?number=${contactInfo.phoneViber.replace(/\+/g, '%2B')}`} className="flex items-center gap-2 hover:text-primary transition-colors">
+                <FaViber className="w-5 h-5 text-purple-500" />
+                <div>
+                  <div className="font-semibold">Viber</div>
+                  <div>{contactInfo.phoneViberDisplay}</div>
+                </div>
+              </Link>
+              <Link href={contactInfo.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+                <FaInstagram className="w-5 h-5 text-pink-500" />
+                <div>
+                  <div className="font-semibold">Instagram</div>
+                  <div>{contactInfo.instagramHandle}</div>
+                </div>
               </Link>
               <Link href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 hover:text-primary transition-colors">
                 <MailIcon className="w-4 h-4" />

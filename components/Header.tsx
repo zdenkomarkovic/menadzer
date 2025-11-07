@@ -93,16 +93,18 @@ export default function Header() {
           </div>
         </Link>
         <DesktopNav />
-        <Link href={`tel:${contactInfo.phone}`}>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="items-center justify-center rounded-full bg-gradient-primary text-primary-foreground text-sm md:text-lg py-1 px-2 md:py-2 md:px-4 transition-all flex font-bold shadow-lg hover:shadow-xl gap-1"
-          >
-            <PhoneIcon />
-            <p className="">{contactInfo.phoneDisplay}</p>
-          </motion.button>
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link href={`https://wa.me/${contactInfo.phoneWhatsApp.replace(/\+/g, '')}`} target="_blank" rel="noopener noreferrer">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="items-center justify-center rounded-full bg-gradient-primary text-primary-foreground text-xs md:text-base py-1 px-2 md:py-2 md:px-3 transition-all flex font-bold shadow-lg hover:shadow-xl gap-1"
+            >
+              <PhoneIcon className="w-4 h-4" />
+              <span className="hidden lg:inline">{contactInfo.phoneWhatsAppDisplay}</span>
+            </motion.button>
+          </Link>
+        </div>
         <MobileMenu />
       </nav>
     </header>
