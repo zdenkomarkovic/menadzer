@@ -110,7 +110,7 @@ export default function ContactForm() {
                     <Textarea
                       {...field}
                       placeholder="Vasa poruka za nas"
-                      className="text-gray-800"
+                      className="text-gray-200"
                     />
                   </FormControl>
                   <FormMessage />
