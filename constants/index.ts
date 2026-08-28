@@ -28,13 +28,9 @@ export const navList = [
 
 // Kontakt informacije
 export const contactInfo = {
-  // Prvi broj - ima i telefon i Viber
+  // Broj telefona - ima i telefon, Viber i WhatsApp
   phone1: "+381628978823",
   phone1Display: "+381 62 897 8823",
-
-  // Drugi broj - ima i telefon i WhatsApp
-  phone2: "+381638800863",
-  phone2Display: "+381 63 880 0863",
 
   email: "risticvladica474@gmail.com",
   instagram: "https://www.instagram.com/trubaci.za_veselja",
