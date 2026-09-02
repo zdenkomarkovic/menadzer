@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://trubaci-zaveselja.rs
+
+# Sitemaps
+Sitemap: https://trubaci-zaveselja.rs/sitemap.xml

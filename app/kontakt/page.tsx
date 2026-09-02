@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
 import { contactInfo } from "@/constants/index";
+import { reportPhoneCallConversion } from "@/lib/gtag";
 import { MailIcon, MapPinIcon, ClockIcon, PhoneIcon } from "lucide-react";
 import { FaWhatsapp, FaViber, FaInstagram } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
@@ -65,6 +66,7 @@ export default function ContactPage() {
                       <div className="flex gap-2 flex-wrap">
                         <Link
                           href={`tel:${contactInfo.phone1}`}
+                          onClick={() => reportPhoneCallConversion()}
                           className="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors"
                         >
                           <PhoneIcon className="w-4 h-4" />

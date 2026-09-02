@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { contactInfo } from "@/constants/index";
+import { reportPhoneCallConversion } from "@/lib/gtag";
 import { MailIcon, PhoneIcon } from "lucide-react";
 import { FaWhatsapp, FaViber, FaInstagram } from "react-icons/fa";
 
@@ -30,7 +31,7 @@ export default function Footer() {
               <div>
                 <div className="font-semibold text-primary mb-1">{contactInfo.phone1Display}</div>
                 <div className="flex gap-2 ml-1 flex-wrap">
-                  <Link href={`tel:${contactInfo.phone1}`} className="flex items-center gap-1 hover:text-primary transition-colors">
+                  <Link href={`tel:${contactInfo.phone1}`} onClick={() => reportPhoneCallConversion()} className="flex items-center gap-1 hover:text-primary transition-colors">
                     <PhoneIcon className="w-4 h-4" />
                     <span>Pozovi</span>
                   </Link>

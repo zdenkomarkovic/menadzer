@@ -10,6 +10,7 @@ import {
   contactInfo,
   eventTypes,
 } from "@/constants/index";
+import { reportPhoneCallConversion } from "@/lib/gtag";
 import {
   CheckIcon,
   PhoneIcon,
@@ -82,7 +83,10 @@ function HeroSection() {
                 Pogledajte naše usluge
               </motion.button>
             </Link>
-            <Link href={`tel:${contactInfo.phone1}`}>
+            <Link
+              href={`tel:${contactInfo.phone1}`}
+              onClick={() => reportPhoneCallConversion()}
+            >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -274,7 +278,10 @@ function EventTypesSection() {
             rođendan ili bilo koju drugu priliku - tu smo da vaš događaj učinimo
             nezaboravnim!
           </p>
-          <Link href={`tel:${contactInfo.phone1}`}>
+          <Link
+              href={`tel:${contactInfo.phone1}`}
+              onClick={() => reportPhoneCallConversion()}
+            >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -615,7 +622,10 @@ function CTASection() {
                 Kontaktirajte nas
               </motion.button>
             </Link>
-            <Link href={`tel:${contactInfo.phone1}`}>
+            <Link
+              href={`tel:${contactInfo.phone1}`}
+              onClick={() => reportPhoneCallConversion()}
+            >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

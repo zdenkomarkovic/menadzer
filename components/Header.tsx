@@ -14,6 +14,7 @@ import {
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { navList, contactInfo } from "@/constants/index";
+import { reportPhoneCallConversion } from "@/lib/gtag";
 import Image from "@/node_modules/next/image";
 
 const mobTitleStyles = "text-lg py-2";
@@ -96,7 +97,10 @@ export default function Header() {
         </Link>
         <DesktopNav />
         <div className="flex items-center gap-2">
-          <Link href={`tel:${contactInfo.phone1}`}>
+          <Link
+            href={`tel:${contactInfo.phone1}`}
+            onClick={() => reportPhoneCallConversion()}
+          >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
