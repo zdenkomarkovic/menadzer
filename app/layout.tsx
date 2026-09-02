@@ -2,6 +2,7 @@ import ButtonToTop from "@/components/ButtonToTop";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -81,6 +82,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sr">
+      <head>
+        {/* Google tag (gtag.js) - Google Ads */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18415657066"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18415657066');
+          `}
+        </Script>
+      </head>
       <body
         className="antialiased text-muted-foreground bg-muted text-base md:text-xl"
       >
