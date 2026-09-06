@@ -11,11 +11,13 @@ declare global {
   }
 }
 
-// Sprečava dvostruko prijavljivanje konverzije za isti klik.
-// Ugnježđeni `<button>` u `<a>` + Framer Motion `whileTap` na nekim
-// (naročito mobilnim) browserima okine `onClick` dva puta za jedan tap.
+// Sigurnosna brana protiv dvostrukog prijavljivanja konverzije za isti klik.
+// Glavni uzrok (ugnježđeni `<button>` u `<a>`) je uklonjen — telefonski
+// linkovi su sada jedan `<a>` element. Guard ostaje za slučaj da mobilni
+// browser okine `onClick` dva puta (npr. bafovani klik posle native "Pozovi"
+// dijaloga na iOS-u).
 let lastPhoneCallConversionAt = 0;
-const PHONE_CALL_DEDUPE_MS = 1500;
+const PHONE_CALL_DEDUPE_MS = 3000;
 
 /**
  * Prijavljuje Google Ads konverziju za klik na telefon.

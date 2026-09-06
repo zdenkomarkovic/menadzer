@@ -64,14 +64,14 @@ export default function ContactPage() {
                         {contactInfo.phone1Display}
                       </div>
                       <div className="flex gap-2 flex-wrap">
-                        <Link
+                        <a
                           href={`tel:${contactInfo.phone1}`}
                           onClick={() => reportPhoneCallConversion()}
                           className="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors"
                         >
                           <PhoneIcon className="w-4 h-4" />
                           <span>Pozovi</span>
-                        </Link>
+                        </a>
                         <Link
                           href={`viber://chat?number=${contactInfo.phone1.replace(/\+/g, '%2B')}`}
                           className="flex items-center gap-2 px-4 py-2 bg-purple-500/10 hover:bg-purple-500/20 rounded-lg transition-colors"

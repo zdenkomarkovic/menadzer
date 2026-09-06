@@ -83,19 +83,16 @@ function HeroSection() {
                 Pogledajte naše usluge
               </motion.button>
             </Link>
-            <Link
+            <motion.a
               href={`tel:${contactInfo.phone1}`}
               onClick={() => reportPhoneCallConversion()}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white/5 backdrop-blur-sm text-white border-2 border-primary px-4 md:px-8 py-2 md:py-4 rounded-full text-lg font-semibold hover:bg-gradient-primary hover:text-primary-foreground transition-all inline-flex items-center gap-2"
             >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white/5 backdrop-blur-sm text-white border-2 border-primary px-4 md:px-8 py-2 md:py-4 rounded-full text-lg font-semibold hover:bg-gradient-primary hover:text-primary-foreground transition-all flex items-center gap-2"
-              >
-                <PhoneIcon className="w-5 h-5" />
-                Pozovite nas
-              </motion.button>
-            </Link>
+              <PhoneIcon className="w-5 h-5" />
+              Pozovite nas
+            </motion.a>
           </div>
         </motion.div>
 
@@ -278,18 +275,15 @@ function EventTypesSection() {
             rođendan ili bilo koju drugu priliku - tu smo da vaš događaj učinimo
             nezaboravnim!
           </p>
-          <Link
-              href={`tel:${contactInfo.phone1}`}
-              onClick={() => reportPhoneCallConversion()}
-            >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-bold shadow-lg hover:shadow-2xl transition-all"
-            >
-              Pozovite nas i rezervišite termin
-            </motion.button>
-          </Link>
+          <motion.a
+            href={`tel:${contactInfo.phone1}`}
+            onClick={() => reportPhoneCallConversion()}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block bg-gradient-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-bold shadow-lg hover:shadow-2xl transition-all"
+          >
+            Pozovite nas i rezervišite termin
+          </motion.a>
         </motion.div>
       </div>
     </section>
@@ -622,19 +616,16 @@ function CTASection() {
                 Kontaktirajte nas
               </motion.button>
             </Link>
-            <Link
+            <motion.a
               href={`tel:${contactInfo.phone1}`}
               onClick={() => reportPhoneCallConversion()}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white/10 backdrop-blur-sm text-white border-2 border-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-all inline-flex items-center gap-2"
             >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white/10 backdrop-blur-sm text-white border-2 border-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-all flex items-center gap-2"
-              >
-                <PhoneIcon className="w-5 h-5" />
-                {contactInfo.phone1Display}
-              </motion.button>
-            </Link>
+              <PhoneIcon className="w-5 h-5" />
+              {contactInfo.phone1Display}
+            </motion.a>
           </div>
         </motion.div>
       </div>

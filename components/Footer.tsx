@@ -31,10 +31,10 @@ export default function Footer() {
               <div>
                 <div className="font-semibold text-primary mb-1">{contactInfo.phone1Display}</div>
                 <div className="flex gap-2 ml-1 flex-wrap">
-                  <Link href={`tel:${contactInfo.phone1}`} onClick={() => reportPhoneCallConversion()} className="flex items-center gap-1 hover:text-primary transition-colors">
+                  <a href={`tel:${contactInfo.phone1}`} onClick={() => reportPhoneCallConversion()} className="flex items-center gap-1 hover:text-primary transition-colors">
                     <PhoneIcon className="w-4 h-4" />
                     <span>Pozovi</span>
-                  </Link>
+                  </a>
                   <Link href={`viber://chat?number=${contactInfo.phone1.replace(/\+/g, '%2B')}`} className="flex items-center gap-1 hover:text-purple-500 transition-colors">
                     <FaViber className="w-4 h-4 text-purple-500" />
                     <span>Viber</span>
