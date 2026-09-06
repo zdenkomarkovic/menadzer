@@ -11,6 +11,12 @@ declare global {
   }
 }
 
+// Sprečava dvostruko prijavljivanje konverzije za isti klik.
+// Ugnježđeni `<button>` u `<a>` + Framer Motion `whileTap` na nekim
+// (naročito mobilnim) browserima okine `onClick` dva puta za jedan tap.
+let lastPhoneCallConversionAt = 0;
+const PHONE_CALL_DEDUPE_MS = 1500;
+
 /**
  * Prijavljuje Google Ads konverziju za klik na telefon.
  *
@@ -27,6 +33,13 @@ export function reportPhoneCallConversion(url?: string): boolean {
     navigate();
     return false;
   }
+
+  const now = Date.now();
+  if (now - lastPhoneCallConversionAt < PHONE_CALL_DEDUPE_MS) {
+    navigate();
+    return false;
+  }
+  lastPhoneCallConversionAt = now;
 
   window.gtag("event", "conversion", {
     send_to: PHONE_CALL_CONVERSION_LABEL,
